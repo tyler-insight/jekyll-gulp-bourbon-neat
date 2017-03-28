@@ -4,16 +4,75 @@ title: Your New Jekyll Site
 ---
 
 <section>
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="full-column">
+    <h1>Blog Posts</h1>
+    <ul class="posts">
+      {% for post in site.posts %}
+        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>
 
 <section>
   <div class="full-column">
     <h1>Full Column</h1>
+  </div>
+</section>
+
+<section>
+  <div class="half-column">
+    <h1>Half Column</h1>
+  </div>
+  <div class="half-column">
+    <h1>Half Column</h1>
+  </div>
+</section>
+
+<section>
+  <div class="third-column">
+    <h1>Third Column</h1>
+  </div>
+  <div class="third-column">
+    <h1>Third Column</h1>
+  </div>
+  <div class="third-column">
+    <h1>Third Column</h1>
+  </div>
+</section>
+
+<section>
+  <div class="fourth-column">
+    <h1>Fourth Column</h1>
+  </div>
+  <div class="fourth-column">
+    <h1>Fourth Column</h1>
+  </div>
+  <div class="fourth-column">
+    <h1>Fourth Column</h1>
+  </div>
+  <div class="fourth-column">
+    <h1>Fourth Column</h1>
+  </div>
+</section>
+
+<section>
+  <div class="sixth-column">
+    <h1>Sixth Column</h1>
+  </div>
+  <div class="sixth-column">
+    <h1>Sixth Column</h1>
+  </div>
+  <div class="sixth-column">
+    <h1>Sixth Column</h1>
+  </div>
+  <div class="sixth-column">
+    <h1>Sixth Column</h1>
+  </div>
+  <div class="sixth-column">
+    <h1>Sixth Column</h1>
+  </div>
+  <div class="sixth-column">
+    <h1>Sixth Column</h1>
   </div>
 </section>

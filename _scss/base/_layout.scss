@@ -11,6 +11,7 @@ html {
 html,
 body {
   height: 100%;
+
 }
 
 $neat-grid: (
@@ -18,23 +19,130 @@ $neat-grid: (
   gutter: 20px,
 );
 
-$neat-600: (
+$neat-small: (
   columns: 2,
   gutter: 20px,
   media: 600px,
   color: rgba(#00d4ff, 0.25),
   direction: ltr,
 );
+$neat-medium: (
+  columns: 6,
+  gutter: 20px,
+  media: 900px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);
+$neat-large: (
+  columns: 12,
+  gutter: 20px,
+  media: 1200px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);
+$neat-larger: (
+  columns: 12,
+  gutter: 20px,
+  media: 1800px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);
+$neat-super: (
+  columns: 12,
+  gutter: 20px,
+  media: 2400px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);
 
 section {
   @include grid-container;
-}
+  @include grid-visual;
 
-.grid{
+  @include grid-media($neat-small){
+    @include grid-container($neat-small);
+    @include grid-visual;
+  }
+  @include grid-media($neat-medium){
+    @include grid-container($neat-medium);
+    @include grid-visual;
+  }
+  @include grid-media($neat-large){
+    @include grid-container($neat-large);
+    @include grid-visual;
+  }
+  @include grid-media($neat-larger){
+    @include grid-container($neat-larger);
+    @include grid-visual;
+  }
+  @include grid-media($neat-super){
+    @include grid-container($neat-super);
+    @include grid-visual;
+  }
 
+  margin-bottom:2rem;
 }
 
 .full-column {
   @include grid-column(1);
+
   background: $light-gray;
+
+}
+
+.half-column{
+  @include grid-column(1);
+  background: $light-gray;
+
+  @include grid-media($neat-small){
+    @include grid-column(1);
+  }
+  @include grid-media($neat-medium){
+    @include grid-column(3);
+  }
+  @include grid-media($neat-large){
+    @include grid-column(6);
+  }
+}
+
+.third-column{
+  @include grid-column(1);
+  background: $light-gray;
+
+  @include grid-media($neat-medium){
+    @include grid-column(2);
+  }
+  @include grid-media($neat-large){
+    @include grid-column(4);
+  }
+}
+
+.fourth-column{
+  @include grid-column(1);
+  background: $light-gray;
+
+  @include grid-media($neat-small){
+    @include grid-column(1);
+  }
+  @include grid-media($neat-medium){
+    @include grid-column(3);
+  }
+  @include grid-media($neat-large){
+    @include grid-column(3);
+  }
+}
+
+.sixth-column{
+  @include grid-column(1);
+  background: $light-gray;
+
+  @include grid-media($neat-small){
+    @include grid-column(1);
+  }
+  @include grid-media($neat-medium){
+    @include grid-column(2);
+  }
+  @include grid-media($neat-large){
+    @include grid-column(2);
+  }
 }
