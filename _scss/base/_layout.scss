@@ -12,3 +12,29 @@ html,
 body {
   height: 100%;
 }
+
+$neat-grid: (
+  columns: 1,
+  gutter: 20px,
+);
+
+$neat-600: (
+  columns: 2,
+  gutter: 20px,
+  media: 600px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);
+
+section {
+  @include grid-container;
+}
+
+.grid{
+
+}
+
+.full-column {
+  @include grid-column(1);
+  background: $light-gray;
+}
