@@ -24,29 +24,35 @@ $neat-large: ( columns: 12, gutter: 20px, media: 1200px, color: rgba(#00d4ff, 0.
 $neat-larger: ( columns: 12, gutter: 20px, media: 1800px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-super: ( columns: 12, gutter: 20px, media: 2400px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 
-section {
-    @include grid-container;
-    margin-bottom: 2rem;
-    @include grid-media($neat-small) {
-         @include grid-container($neat-small);
-    }
-    @include grid-media($neat-medium) {
-         @include grid-container($neat-medium);
-    }
-    @include grid-media($neat-large) {
-         @include grid-container($neat-large);
-    }
-    @include grid-media($neat-larger) {
-         @include grid-container($neat-larger);
-    }
-    @include grid-media($neat-super) {
-         @include grid-container($neat-super);
-    }
+
+.container {
+  @include grid-container;
+  @include grid-visual;
+
+  @include grid-media($neat-small) {
+       @include grid-container($neat-small);
+       @include grid-visual;
+  }
+  @include grid-media($neat-medium) {
+       @include grid-container($neat-medium);
+       @include grid-visual;
+  }
+  @include grid-media($neat-large) {
+       @include grid-container($neat-large);
+       @include grid-visual;
+  }
+  @include grid-media($neat-larger) {
+       @include grid-container($neat-larger);
+       @include grid-visual;
+  }
+  @include grid-media($neat-super) {
+       @include grid-container($neat-super);
+       @include grid-visual;
+  }
 }
 
-.full-edge {
+section.full-edge {
     @include grid-collapse;
-    padding: 0 20px;
 }
 
 /*---------------------------------
@@ -55,6 +61,7 @@ Standard Columns
 
 .full-column {
     @include grid-column(1);
+
 }
 
 .half-column {
@@ -189,18 +196,22 @@ Centered Columns
     text-align: center;
 
     div {
-        min-height: 75px;
+        min-height: 150px;
         position: relative;
-        display: flex;
-        align-items: center;
-
         h2 {
-            text-align: center;
-            margin: 0 auto;
+          position: absolute;
+          width:100%;
+          top:50%;
+          transform:translateY(-50%);
         }
+
     }
+
 }
 
+.margin-bottom{
+  margin-bottom: 2rem;
+}
 .header{
   padding:20px 0;
 }
