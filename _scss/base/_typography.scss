@@ -22,14 +22,14 @@ p {
 }
 
 a {
-  color: $action-color;
+  color: $insight-red;
   text-decoration: none;
   transition: color $base-duration $base-timing;
 
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    color: shade($insight-red, 25%);
   }
 }
 
@@ -39,4 +39,8 @@ hr {
   border-right: 0;
   border-top: 0;
   margin: $base-spacing 0;
+}
+
+h1{
+  font-size: 2em;
 }
