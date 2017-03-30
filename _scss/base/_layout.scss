@@ -23,12 +23,10 @@ Examples formatting
     div {
         height:auto;
         position: relative;
-        min-height:10em;
+
         h2 {
-          position: absolute;
-          width:100%;
-          top:50%;
-          transform:translateY(-50%);
+          position: relative;
+          line-height: 1em;
         }
     }
 
@@ -56,29 +54,23 @@ $neat-larger-full: ( columns: 12, gutter: 0px, media: 1800px, color: rgba(#00d4f
 $neat-super-full: ( columns: 12, gutter: 0px, media: 2400px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 
 
-.container {
+section {
   @include grid-container;
-  @include grid-visual;
 
   @include grid-media($neat-small) {
        @include grid-container($neat-small);
-       @include grid-visual;
   }
   @include grid-media($neat-medium) {
        @include grid-container($neat-medium);
-       @include grid-visual;
   }
   @include grid-media($neat-large) {
        @include grid-container($neat-large);
-       @include grid-visual;
   }
   @include grid-media($neat-larger) {
        @include grid-container($neat-larger);
-       @include grid-visual;
   }
   @include grid-media($neat-super) {
        @include grid-container($neat-super);
-       @include grid-visual;
   }
 }
 
@@ -92,10 +84,12 @@ Standard Columns
 
 .full-column {
     @include grid-column(1);
+    padding:1em;
 }
 
 .half-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(1);
     }
@@ -109,6 +103,7 @@ Standard Columns
 
 .one-thirds-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(2);
     }
@@ -122,6 +117,7 @@ Standard Columns
 
 .fourth-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(1);
     }
@@ -135,6 +131,7 @@ Standard Columns
 
 .sixth-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(1);
     }
@@ -148,6 +145,7 @@ Standard Columns
 
 .twelfth-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(1);
     }
@@ -161,6 +159,7 @@ Standard Columns
 
 .two-thirds-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(2);
     }
@@ -178,10 +177,12 @@ Full Grids
 
 .full-column-full {
     @include grid-column(1, $neat-grid-full);
+    padding:1em;
 }
 
 .half-column-full {
-    @include grid-column(1);
+    @include grid-column(1, $neat-grid-full);
+    padding:1em;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
     }
@@ -193,8 +194,10 @@ Full Grids
     }
 }
 
-.third-column-full {
-    @include grid-column(1);
+.one-thirds-column-full {
+    @include grid-column(1, $neat-grid-full);
+    padding:1em;
+
     @include grid-media($neat-medium-full) {
          @include grid-column(2);
     }
@@ -204,7 +207,8 @@ Full Grids
 }
 
 .fourth-column-full {
-    @include grid-column(1);
+    @include grid-column(1, $neat-grid-full);
+    padding:1em;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
     }
@@ -217,7 +221,8 @@ Full Grids
 }
 
 .sixth-column-full {
-    @include grid-column(1);
+    @include grid-column(1, $neat-grid-full);
+    padding:1em;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
     }
@@ -230,7 +235,8 @@ Full Grids
 }
 
 .twelfth-column-full {
-    @include grid-column(1);
+    @include grid-column(1, $neat-grid-full);
+    padding:1em;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
     }
@@ -239,24 +245,12 @@ Full Grids
     }
     @include grid-media($neat-large-full) {
          @include grid-column(1);
-    }
-}
-
-.one-thirds-column-full {
-    @include grid-column(1);
-    @include grid-media($neat-small-full) {
-         @include grid-column(2);
-    }
-    @include grid-media($neat-medium-full) {
-         @include grid-column(2);
-    }
-    @include grid-media($neat-large-full) {
-         @include grid-column(4);
     }
 }
 
 .two-thirds-column-full {
-    @include grid-column(1);
+    @include grid-column(1, $neat-grid-full);
+    padding:1em;
     @include grid-media($neat-small-full) {
          @include grid-column(2);
     }
@@ -274,6 +268,7 @@ Centered Columns
 
 .five-sixth-column {
     @include grid-column(1);
+    padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(2);
     }
@@ -284,12 +279,14 @@ Centered Columns
 }
 
 .two-thirds-column-centered {
+  padding:1em;
     @include grid-media($neat-medium) {
          @include grid-push(1);
     }
 }
 
 .half-column-centered {
+  padding:1em;
     @include grid-media($neat-small) {
          @include grid-column(2);
     }
@@ -303,11 +300,72 @@ Centered Columns
 }
 
 .one-thirds-column-centered {
+  padding:1em;
     @include grid-media($neat-medium) {
          @include grid-push(2);
     }
 }
 
 .margin-bottom{
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
+}
+.margin-bottom-large{
+  margin-bottom: 4em;
+}
+
+.no-padding{
+  padding:0;
+}
+
+/*---------------------------------
+Examples
+----------------------------------*/
+
+.image-block{
+  background: #fff;
+  text-align: left;
+
+
+  .third-image-box{
+    height:20rem;
+    @media only screen and (min-width: $larger){
+      height:25rem;
+    }
+    @media only screen and (min-width: $super){
+      height:30rem;
+    }
+  }
+
+  .half-image-box{
+    height:25rem;
+    @media only screen and (min-width: $medium){
+      height:30rem;
+    }
+    @media only screen and (min-width: $larger){
+      height:35rem;
+    }
+    @media only screen and (min-width: $super){
+      height:40rem;
+    }
+  }
+
+  .flex{
+    display:flex;
+    height:100%;
+  }
+
+  img{
+    object-fit: cover;
+  }
+}
+
+
+p{
+  text-align: left;
+}
+
+.image-grid {
+  img {
+
+  }
 }
