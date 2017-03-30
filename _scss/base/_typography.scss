@@ -51,7 +51,7 @@ h6 {
 }
 
 p {
-  margin: 0 0 $small-spacing;
+  margin: 0 0 $p-spacing;
   line-height: $base-line-height;
 }
 
@@ -83,4 +83,21 @@ p {
 
 h1{
   @include font-size($h1-font-sizes);
+  font-weight: bold;
+  margin-bottom:.5em;
+}
+h2{
+  @include font-size($h2-font-sizes);
+
+}
+h3{
+  @include font-size($h3-font-sizes);
+  font-weight: bold;
+}
+h4{
+  @include font-size($h4-font-sizes);
+  text-transform: uppercase;
+  font-weight:bold;
+  color: lighten($base-font-color, 30%);
+  margin: 0 0 0em;
 }
