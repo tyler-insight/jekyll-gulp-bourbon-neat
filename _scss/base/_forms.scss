@@ -1,5 +1,7 @@
+$form-background: lighten($light-gray, 10%);
+
 fieldset {
-  background-color: lighten($light-gray, 10%);
+  background-color: $form-background;
   border: 0;
   margin: 0;
   padding: 1em;
@@ -15,6 +17,15 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: $small-spacing / 2;
+  font-family: $base-font-family;
+
+  &.label-light{
+    font-weight: 400;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
 
 input,
@@ -69,6 +80,10 @@ textarea {
 [type="radio"] {
   display: inline;
   margin-right: $small-spacing / 2;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 [type="file"] {
