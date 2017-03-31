@@ -34,6 +34,7 @@ body {
     color: $base-font-color;
     font-family: $base-font-family;
     font-size: $base-font-size;
+    line-height: 0;
 }
 
 h1,
@@ -50,7 +51,17 @@ h6 {
 
 p {
     margin: 0 0 $p-spacing;
-    line-height: $base-line-height;
+}
+
+p,
+span {
+    @include font-size($p-font-sizes);
+    font-family: "freight-text-pro", serif;
+    font-weight: 400;
+}
+
+p span{
+  font-size:1em;
 }
 
 a {
@@ -77,19 +88,12 @@ hr {
     max-width: $max-text-width;
 }
 
-.center-text {
+.text-centered {
+    max-width: $max-text-width;
+    margin:0 auto;
+}
+.center{
     text-align: center;
-}
-
-p,
-span {
-    @include font-size($p-font-sizes);
-    font-family: "freight-text-pro", serif;
-    font-weight: 400;
-}
-
-p span{
-  font-size:1em;
 }
 
 .code-snippet{
@@ -121,8 +125,8 @@ h4 {
     font-weight: bold;
 }
 
-h5 {
-    @include font-size($h5-font-sizes);
+h6 {
+    @include font-size($h6-font-sizes);
     text-transform: uppercase;
     font-weight: bold;
     color: lighten($base-font-color, 30%);

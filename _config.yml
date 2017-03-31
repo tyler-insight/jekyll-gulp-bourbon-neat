@@ -1,4 +1,4 @@
-name: Neat Bourbon Jekyll Gulp
+name: Levis
 markdown: redcarpet
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]

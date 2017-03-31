@@ -29,26 +29,36 @@
 
   <div id="content">
     {{ content }}
+
+    <section>
+      <div class="footer full-column">
+        <div class="contact">
+          <p>
+            Your Name is<br /> What You Are<br /> you@example.com
+          </p>
+        </div>
+        <div class="contact">
+          <p>
+            <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+            <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <section>
-    <div class="footer full-column">
-      <div class="contact">
-        <p>
-          Your Name is<br /> What You Are<br /> you@example.com
-        </p>
-      </div>
-      <div class="contact">
-        <p>
-          <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-          <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-        </p>
-      </div>
-    </div>
-  </section>
 
+
+  <!-- jQuery library -->
   <script src="/js/jquery-3.2.0.min.js"></script>
+
+  <!-- Animation replacement for animate() -->
+  <script src="http://velocityjs.org/build/jquery.velocity.min.js"></script>
+  <script src="http://velocityjs.org/build/velocity.ui.js"></script>
+
+  <!-- Main javascript file -->
   <script src="/js/main.js"></script>
+
 </body>
 
 </html>

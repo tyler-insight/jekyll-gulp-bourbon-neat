@@ -1,3 +1,20 @@
+/* ----- Set Velocity.js Animations ----- */
+$.Velocity
+    .RegisterEffect("transition.fadeIn", {
+        defaultDuration: 700,
+        calls: [
+            [ { opacity: 1, translateY: '0px' } ]
+        ]
+    });
+$.Velocity
+    .RegisterEffect("transition.fadeOut", {
+        defaultDuration: 700,
+        calls: [
+            [ { opacity: 0, translateY: '10rem' } ]
+        ],
+        reset: { translateY: '10rem' }
+    });
+
 $(function() {
   var changedPage = false,
 
@@ -19,8 +36,29 @@ $(function() {
     },
 
     loadPage = function(url) {
-      $("#content").load(url + " #content", ajaxLoad);
-      console.log("Ajax Loaded");
+      /* ----- Animate current content out ----- */
+      $('#content').velocity("transition.fadeOut", {
+            complete: function() {
+              $('html').velocity("scroll", {
+                duration: 0,
+                easing: "ease",
+                mobileHA: false
+              });
+              $("#content").load(url + " #content", function(){
+                $('#content').velocity("transition.fadeIn", {
+                  visibility: 'visible',
+                      complete: function() {
+                        ajaxLoad();
+                        console.log("Ajax Loaded");
+                      }
+                  });
+              });
+            }
+        });
+
+      /* ----- Animate new content in ----- */
+
+
     };
 
   /* ----- This runs on the first page load with no ajax ----- */
@@ -31,10 +69,12 @@ $(function() {
     console.log("Popstate happened");
   });
 
+  /* ----- Do things on link click ----- */
   $(document).on('click', 'a', function() {
     var url = $(this).attr("href"),
       title = $(this).text();
 
+    /* ----- Check if internal site link before doing Ajax ----- */
     if (url.indexOf(document.domain) > -1 || url.indexOf(':') === -1) {
 
       history.pushState({
