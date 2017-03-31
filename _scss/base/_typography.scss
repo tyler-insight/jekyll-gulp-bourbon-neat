@@ -75,9 +75,9 @@ hr {
   margin: $base-spacing 0;
 }
 
-.text{
-  max-width:$max-text-width;
-}
+    .text{
+      max-width:$max-text-width;
+    }
 
 p {
   @include font-size($p-font-sizes);

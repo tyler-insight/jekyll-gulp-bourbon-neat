@@ -1,0 +1,24 @@
+$nav-height: 8rem;
+
+.navigation {
+  background: #fff;
+  height: $nav-height;
+  position: relative;
+  padding:20px;
+  ul{
+    height: $nav-height;
+    position: absolute;
+    right:20px;
+    top:0;
+    li{
+      position: relative;
+      margin-left:2rem;
+      height:100%;
+      a{
+        position: relative;
+        top:50%;
+        height: 100%;
+      }
+    }
+  }
+}
