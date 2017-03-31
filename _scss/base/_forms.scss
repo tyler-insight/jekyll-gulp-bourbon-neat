@@ -1,8 +1,8 @@
 fieldset {
-  background-color: transparent;
+  background-color: lighten($light-gray, 10%);
   border: 0;
   margin: 0;
-  padding: 0;
+  padding: 1em;
 }
 
 legend {

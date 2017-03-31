@@ -13,6 +13,8 @@ $breakpoints: (
   super : $super
 );
 
+$grid-gutter: 2rem;
+
 // Variables for setting responsive font-size and line-height
 // breakpoint: (font-size, line-height)
 $p-font-sizes: (
@@ -91,6 +93,7 @@ $blue: #1565c0;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
+$code-color: #e0ebf0;
 
 // Font Colors
 $base-font-color: $dark-gray;

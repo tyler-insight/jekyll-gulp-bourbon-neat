@@ -1,41 +1,39 @@
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
-  @each $fs-breakpoint, $fs-font-size in $fs-map {
-    @if $fs-breakpoint == null {
-      @include make-font-size($fs-font-size);
+     @each $fs-breakpoint, $fs-font-size in $fs-map{
+        @if $fs-breakpoint == null {
+             @include make-font-size($fs-font-size);
+        }
+        @else {
+            // If $fs-font-size is a key that exists in
+            // $fs-breakpoints, use the value
+            @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+                $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+            }
+            @media screen and (min-width: $fs-breakpoint) {
+                 @include make-font-size($fs-font-size);
+            }
+        }
     }
-    @else {
-      // If $fs-font-size is a key that exists in
-      // $fs-breakpoints, use the value
-      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
-        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
-      }
-      @media screen and (min-width: $fs-breakpoint) {
-        @include make-font-size($fs-font-size);
-      }
-    }
-  }
 }
-
 // Utility function for mixin font-size
 @mixin make-font-size($fs-font-size) {
-  // If $fs-font-size is a list, include
-  // both font-size and line-height
-  @if type-of($fs-font-size) == "list" {
-    font-size: nth($fs-font-size, 1);
-    @if (length($fs-font-size) > 1) {
-      line-height: nth($fs-font-size, 2);
+    // If $fs-font-size is a list, include
+    // both font-size and line-height
+    @if type-of($fs-font-size) == "list" {
+        font-size: nth($fs-font-size, 1);
+        @if (length($fs-font-size) > 1) {
+            line-height: nth($fs-font-size, 2);
+        }
     }
-  }
-  @else {
-    font-size: $fs-font-size;
-  }
+    @else {
+        font-size: $fs-font-size;
+    }
 }
 
 body {
-  color: $base-font-color;
-  font-family: $base-font-family;
-  font-size: $base-font-size;
-  line-height: 0;
+    color: $base-font-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
 }
 
 h1,
@@ -44,70 +42,125 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $heading-font-family;
-  font-size: modular-scale(1);
-  line-height: $heading-line-height;
-  margin: 0 0 $small-spacing;
+    font-family: $heading-font-family;
+    font-size: modular-scale(1);
+    line-height: $heading-line-height;
+    margin: 0 0 $small-spacing;
 }
 
 p {
-  margin: 0 0 $p-spacing;
-  line-height: $base-line-height;
+    margin: 0 0 $p-spacing;
+    line-height: $base-line-height;
 }
 
 a {
-  color: $insight-red;
-  text-decoration: none;
-  transition: color $base-duration $base-timing;
+    color: $insight-red;
+    text-decoration: none;
+    transition: color $base-duration $base-timing;
 
-  &:active,
-  &:focus,
-  &:hover {
-    color: shade($insight-red, 25%);
-  }
+    &:active,
+    &:focus,
+    &:hover {
+        color: shade($insight-red, 25%);
+    }
 }
 
 hr {
-  border-bottom: $base-border;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  margin: $base-spacing 0;
+    border-bottom: $base-border;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: $base-spacing 0;
 }
 
-    .text{
-      max-width:$max-text-width;
-    }
-
-p {
-  @include font-size($p-font-sizes);
-  font-family: "freight-text-pro", serif;
-  font-weight: 400;
+.text {
+    max-width: $max-text-width;
 }
 
-h1{
-  @include font-size($h1-font-sizes);
-  font-weight: bold;
+.center-text {
+    text-align: center;
 }
-h2{
-  @include font-size($h2-font-sizes);
-  font-weight: 600;
-  margin-bottom:.5em;
-}
-h3{
-  @include font-size($h3-font-sizes);
-  font-style: italic;
-  font-weight: 400;
-}
-h4{
-  @include font-size($h4-font-sizes);
-  font-weight: bold;
 
+p,
+span {
+    @include font-size($p-font-sizes);
+    font-family: "freight-text-pro", serif;
+    font-weight: 400;
 }
-h5{
-  @include font-size($h5-font-sizes);
-  text-transform: uppercase;
-  font-weight:bold;
-  color: lighten($base-font-color, 30%);
-  margin: 0 0 0em;
+
+p span{
+  font-size:1em;
+}
+
+.code-snippet{
+  font-size:.7em;
+  background: $code-color;
+  padding: .2em .4em;
+  font-family: "Consolas", "monaco", monospace;
+}
+
+h1 {
+    @include font-size($h1-font-sizes);
+    font-weight: bold;
+}
+
+h2 {
+    @include font-size($h2-font-sizes);
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    @include font-size($h3-font-sizes);
+    font-style: italic;
+    font-weight: 400;
+}
+
+h4 {
+    @include font-size($h4-font-sizes);
+    font-weight: bold;
+}
+
+h5 {
+    @include font-size($h5-font-sizes);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lighten($base-font-color, 30%);
+    margin: 0;
+}
+/* standard */
+.post pre {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 0.4em;
+    margin-bottom: 2rem;
+}
+
+.post ol,
+.post ul {
+    margin-left: 1.35em;
+}
+
+.post code {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 0.2em;
+}
+
+.post pre code {
+    border: none;
+}
+/* terminal */
+.post pre.terminal {
+    border: 1px solid #000;
+    background-color: #333;
+    color: #FFF;
+}
+
+.post pre.terminal code {
+    background-color: #333;
+}
+
+.meta {
+    color: #aaa;
 }

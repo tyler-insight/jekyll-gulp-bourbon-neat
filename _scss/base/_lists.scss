@@ -3,6 +3,7 @@ ol {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 2rem;
 }
 
 dl {
@@ -16,8 +17,19 @@ dt {
 
 dd {
   margin: 0;
+  margin-bottom: 2rem;
 }
 
-li {
-  display:inline-block;
+ul {
+  &.default{
+    list-style-type: disc;
+    padding-left:1.5em;
+  }
+}
+
+ol {
+  &.default{
+    list-style-type: decimal;
+    padding-left:1.5em;
+  }
 }

@@ -26,12 +26,12 @@ Examples formatting
 Grids
 ----------------------------------*/
 
-$neat-grid: ( columns: 1, gutter: 20px, );
-$neat-small: ( columns: 2, gutter: 20px, media: 600px, color: rgba(#00d4ff, 0.25), direction: ltr, );
-$neat-medium: ( columns: 6, gutter: 20px, media: 900px, color: rgba(#00d4ff, 0.25), direction: ltr, );
-$neat-large: ( columns: 12, gutter: 20px, media: 1200px, color: rgba(#00d4ff, 0.25), direction: ltr, );
-$neat-larger: ( columns: 12, gutter: 20px, media: 1800px, color: rgba(#00d4ff, 0.25), direction: ltr, );
-$neat-super: ( columns: 12, gutter: 20px, media: 2400px, color: rgba(#00d4ff, 0.25), direction: ltr, );
+$neat-grid: ( columns: 1, gutter: $grid-gutter, );
+$neat-small: ( columns: 2, gutter: $grid-gutter, media: 600px, color: rgba(#00d4ff, 0.25), direction: ltr, );
+$neat-medium: ( columns: 6, gutter: $grid-gutter, media: 900px, color: rgba(#00d4ff, 0.25), direction: ltr, );
+$neat-large: ( columns: 12, gutter: $grid-gutter, media: 1200px, color: rgba(#00d4ff, 0.25), direction: ltr, );
+$neat-larger: ( columns: 12, gutter: $grid-gutter, media: 1800px, color: rgba(#00d4ff, 0.25), direction: ltr, );
+$neat-super: ( columns: 12, gutter: $grid-gutter, media: 2400px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 
 $neat-grid-full: ( columns: 1, gutter: 0px, );
 $neat-small-full: ( columns: 2, gutter: 0px, media: 600px, color: rgba(#00d4ff, 0.25), direction: ltr, );
