@@ -10,12 +10,21 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight scss %}
+h6 {
+    @include font-size($h6-font-sizes);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lighten($base-font-color, 30%);
+    margin: 0;
+}
+/* standard */
+pre {
+    border: 1px solid #ddd;
+    background-color: #eee;
+    padding: 0 0.4em;
+    margin-bottom: 2rem;
+}
 {% endhighlight %}
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].

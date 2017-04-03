@@ -5,17 +5,26 @@ $nav-background-color: #fff;
     background: #fff;
     height: $nav-height;
     position: relative;
-    padding: 1rem $grid-gutter;
     background: $nav-background-color;
     z-index:100;
+    padding: $column-padding-regular;
+
+    @include grid-media($neat-small) {
+         padding: $column-padding-large;
+    }
+
 
     ul {
         height: $nav-height;
         position: absolute;
-        right: $grid-gutter;
+        right: $grid-gutter*2;
         top: 0;
         display: flex;
         align-items: center;
+
+        @include grid-media($neat-small) {
+            right: $grid-gutter*3;
+        }
 
         li {
             display: flex;

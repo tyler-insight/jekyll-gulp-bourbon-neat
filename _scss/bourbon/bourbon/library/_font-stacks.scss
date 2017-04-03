@@ -201,6 +201,13 @@ $font-stack-consolas: (
   monospace,
 );
 
+$font-stack-inconsolata: (
+  "Inconsolata",
+  "Consolas",
+  "monaco",
+  monospace,
+);
+
 /// A variable that outputs a Courier New font stack.
 ///
 /// @link https://goo.gl/bHfWMP

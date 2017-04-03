@@ -3,11 +3,13 @@ layout: default
 ---
 <section>
   <div class="full-column">
-    <h2>{{ page.title }}</h2>
-    <p class="meta">{{ page.date | date_to_string }}</p>
+    <div class="text">
+      <h2>{{ page.title }}</h2>
+      <p class="meta">{{ page.date | date_to_string }}</p>
 
-    <div class="post">
-      {{ content }}
+      <div class="post">
+        {{ content }}
+      </div>
     </div>
   </div>
 </section>

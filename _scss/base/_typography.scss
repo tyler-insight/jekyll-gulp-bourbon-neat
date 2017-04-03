@@ -35,6 +35,9 @@ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -64,7 +67,26 @@ p span{
   font-size:1em;
 }
 
+p a {
+  text-shadow: 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff;
+  background-image: linear-gradient(currentColor,currentColor);
+  background-size: 100% 1.5px;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-position: center bottom 15%;
+  padding: .2em 0;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 700;
+}
+
 a {
+    position: relative;
     color: $insight-red;
     text-decoration: none;
     transition: color $base-duration $base-timing;
@@ -74,6 +96,7 @@ a {
     &:hover {
         color: shade($insight-red, 25%);
     }
+
 }
 
 hr {
@@ -94,13 +117,6 @@ hr {
 }
 .center{
     text-align: center;
-}
-
-.code-snippet{
-  font-size:.7em;
-  background: $code-color;
-  padding: .2em .4em;
-  font-family: "Consolas", "monaco", monospace;
 }
 
 h1 {
@@ -133,38 +149,48 @@ h6 {
     margin: 0;
 }
 /* standard */
-.post pre {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    padding: 0 0.4em;
+pre {
+    background-color: $code-color;
+    padding: 1em;
     margin-bottom: 2rem;
+    max-width:100%;
+    white-space: pre;
+    overflow: auto;
+
+    code{
+      padding:0;
+    }
 }
 
-.post ol,
-.post ul {
-    margin-left: 1.35em;
+code {
+    background-color: $code-color;
+    padding: 0.2em .5em;
+    font-family: $font-stack-inconsolata;
+    font-size:.8em;
+
+    span, p {
+      font-family: $font-stack-inconsolata;
+    }
 }
 
-.post code {
-    border: 1px solid #ddd;
-    background-color: #eef;
-    padding: 0 0.2em;
-}
-
-.post pre code {
+pre code {
     border: none;
 }
 /* terminal */
-.post pre.terminal {
+pre.terminal {
     border: 1px solid #000;
     background-color: #333;
     color: #FFF;
 }
 
-.post pre.terminal code {
+pre.terminal code {
     background-color: #333;
 }
 
 .meta {
     color: #aaa;
+}
+
+.lineno {
+  width:1em;
 }

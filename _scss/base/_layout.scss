@@ -12,27 +12,21 @@ body,
 html {
     height: 100%;
 }
-
 /*---------------------------------
 Examples formatting
 ----------------------------------*/
-
-
-.header{
-  padding:20px 0;
+.header {
+    padding: 20px 0;
 }
-
 /*---------------------------------
 Grids
 ----------------------------------*/
-
-$neat-grid: ( columns: 1, gutter: $grid-gutter/2, );
+$neat-grid: ( columns: 1, gutter: $grid-gutter, );
 $neat-small: ( columns: 2, gutter: $grid-gutter, media: 600px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-medium: ( columns: 6, gutter: $grid-gutter, media: 900px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-large: ( columns: 12, gutter: $grid-gutter, media: 1200px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-larger: ( columns: 12, gutter: $grid-gutter, media: 1800px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-super: ( columns: 12, gutter: $grid-gutter, media: 2400px, color: rgba(#00d4ff, 0.25), direction: ltr, );
-
 $neat-grid-full: ( columns: 1, gutter: 0px, );
 $neat-small-full: ( columns: 2, gutter: 0px, media: 600px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-medium-full: ( columns: 6, gutter: 0px, media: 900px, color: rgba(#00d4ff, 0.25), direction: ltr, );
@@ -40,48 +34,48 @@ $neat-large-full: ( columns: 12, gutter: 0px, media: 1200px, color: rgba(#00d4ff
 $neat-larger-full: ( columns: 12, gutter: 0px, media: 1800px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 $neat-super-full: ( columns: 12, gutter: 0px, media: 2400px, color: rgba(#00d4ff, 0.25), direction: ltr, );
 
-
 section {
-  @include grid-container;
-
-  @include grid-media($neat-small) {
-       @include grid-container($neat-small);
-  }
-  @include grid-media($neat-medium) {
-       @include grid-container($neat-medium);
-  }
-  @include grid-media($neat-large) {
-       @include grid-container($neat-large);
-  }
-  @include grid-media($neat-larger) {
-       @include grid-container($neat-larger);
-  }
-  @include grid-media($neat-super) {
-       @include grid-container($neat-super);
-  }
+    @include grid-container;
+    @include grid-media($neat-small) {
+         @include grid-container($neat-small);
+    }
+    @include grid-media($neat-medium) {
+         @include grid-container($neat-medium);
+    }
+    @include grid-media($neat-large) {
+         @include grid-container($neat-large);
+    }
+    @include grid-media($neat-larger) {
+         @include grid-container($neat-larger);
+    }
+    @include grid-media($neat-super) {
+         @include grid-container($neat-super);
+    }
 }
 
-#content{
-
-}
+#content {}
 
 .full-edge {
     @include grid-collapse;
 }
-
 /*---------------------------------
 Standard Columns
 ----------------------------------*/
-
 .full-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
+    @include grid-media($neat-small) {
+         @include grid-column(2);
+        padding: $column-padding-regular;
+    }
 }
 
 .half-column {
     @include grid-column(1);
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(3);
@@ -93,9 +87,10 @@ Standard Columns
 
 .one-thirds-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(2);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(2);
@@ -107,9 +102,10 @@ Standard Columns
 
 .fourth-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(3);
@@ -121,9 +117,10 @@ Standard Columns
 
 .sixth-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(2);
@@ -135,9 +132,10 @@ Standard Columns
 
 .twelfth-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(2);
@@ -149,9 +147,10 @@ Standard Columns
 
 .two-thirds-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(2);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(4);
@@ -160,21 +159,23 @@ Standard Columns
          @include grid-column(8);
     }
 }
-
 /*---------------------------------
 Full Grids
 ---------------------------------*/
-
 .full-column-full {
     @include grid-column(1, $neat-grid-full);
-
+    padding: $column-padding-small;
+    @include grid-media($neat-small-full) {
+        padding: $column-padding-regular;
+    }
 }
 
 .half-column-full {
     @include grid-column(1, $neat-grid-full);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium-full) {
          @include grid-column(3);
@@ -186,8 +187,10 @@ Full Grids
 
 .one-thirds-column-full {
     @include grid-column(1, $neat-grid-full);
-
-
+    padding: $column-padding-small;
+    @include grid-media($neat-small-full) {
+        padding: $column-padding-regular;
+    }
     @include grid-media($neat-medium-full) {
          @include grid-column(2);
     }
@@ -198,9 +201,10 @@ Full Grids
 
 .fourth-column-full {
     @include grid-column(1, $neat-grid-full);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium-full) {
          @include grid-column(3);
@@ -212,9 +216,10 @@ Full Grids
 
 .sixth-column-full {
     @include grid-column(1, $neat-grid-full);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium-full) {
          @include grid-column(2);
@@ -226,9 +231,10 @@ Full Grids
 
 .twelfth-column-full {
     @include grid-column(1, $neat-grid-full);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small-full) {
          @include grid-column(1);
+        padding: 2rem;
     }
     @include grid-media($neat-medium-full) {
          @include grid-column(2);
@@ -240,9 +246,10 @@ Full Grids
 
 .two-thirds-column-full {
     @include grid-column(1, $neat-grid-full);
-
+    padding: 1rem;
     @include grid-media($neat-small-full) {
          @include grid-column(2);
+        padding: 2rem;
     }
     @include grid-media($neat-medium-full) {
          @include grid-column(4);
@@ -251,16 +258,15 @@ Full Grids
          @include grid-column(8);
     }
 }
-
 /*---------------------------------
 Centered Columns
 ----------------------------------*/
-
 .five-sixth-column {
     @include grid-column(1);
-
+    padding: $column-padding-small;
     @include grid-media($neat-small) {
          @include grid-column(2);
+        padding: $column-padding-regular;
     }
     @include grid-media($neat-medium) {
          @include grid-column(5);
@@ -269,14 +275,12 @@ Centered Columns
 }
 
 .two-thirds-column-centered {
-
     @include grid-media($neat-medium) {
          @include grid-push(1);
     }
 }
 
 .half-column-centered {
-
     @include grid-media($neat-small) {
          @include grid-column(2);
     }
@@ -290,73 +294,59 @@ Centered Columns
 }
 
 .one-thirds-column-centered {
-
     @include grid-media($neat-medium) {
          @include grid-push(2);
     }
 }
 
-.margin-bottom{
-  margin-bottom: 20px;
-}
-.margin-bottom-large{
-  margin-bottom: 4em;
+.margin-bottom {
+    margin-bottom: 1rem;
+
+    @include grid-media($neat-small) {
+         margin-bottom: 2rem;
+    }
 }
 
-.no-padding{
-  padding:0;
+.margin-bottom-large {
+    margin-bottom: 2em;
+
+    @include grid-media($neat-small) {
+         margin-bottom: 4rem;
+    }
+}
+
+.no-padding {
+    padding: 0;
 }
 
 /*---------------------------------
 Examples
 ----------------------------------*/
 
-.image-block{
-  background: #fff;
-  text-align: left;
+.image-block {
+    background: #fff;
+    text-align: left;
 
-
-
-  .third-image-box{
-    height:20rem;
-    @media only screen and (min-width: $larger){
-      height:25rem;
+    .two-thirds-column-full{
+      height:100%;
     }
-    @media only screen and (min-width: $super){
-      height:30rem;
-    }
-  }
+    .third-image-box {
+        height: 100%;
 
-  .half-image-box{
-    height:25rem;
-    @media only screen and (min-width: $medium){
-      height:30rem;
-    }
-    @media only screen and (min-width: $larger){
-      height:35rem;
-    }
-    @media only screen and (min-width: $super){
-      height:40rem;
-    }
-  }
 
-  .flex{
-    display:flex;
-    height:100%;
-  }
-
-  img{
-    object-fit: cover;
-  }
+        img {
+          width:100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
 }
 
-
-p{
-  text-align: left;
+p {
+    text-align: left;
 }
 
 .image-grid {
-  img {
-
-  }
+    img {}
 }
