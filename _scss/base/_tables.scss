@@ -22,4 +22,11 @@ tr,
 td,
 th {
   vertical-align: middle;
+  padding: 1em;
+}
+
+tr {
+  &:hover {
+    background: #eee;
+  }
 }

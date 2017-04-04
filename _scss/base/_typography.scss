@@ -32,9 +32,11 @@
 
 body {
     color: $base-font-color;
+
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: 0;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -46,10 +48,11 @@ h3,
 h4,
 h5,
 h6 {
+    margin: 0 0 $small-spacing;
+
     font-family: $heading-font-family;
     font-size: modular-scale(1);
     line-height: $heading-line-height;
-    margin: 0 0 $small-spacing;
 }
 
 p {
@@ -57,54 +60,70 @@ p {
 }
 
 p,
-span {
-    @include font-size($p-font-sizes);
+span,
+ {
     font-family: "freight-text-pro", serif;
     font-weight: 400;
+
+    @include font-size($p-font-sizes);
 }
 
-p span{
-  font-size:1em;
+ul li,
+ol li,
+dt,
+dd, {
+  font-family: "freight-text-pro", serif;
+
+  @include font-size($p-font-sizes);
+}
+
+p span {
+    font-size: 1em;
 }
 
 p a {
-  text-shadow: 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff;
-  background-image: linear-gradient(currentColor,currentColor);
-  background-size: 100% 1.5px;
-  background-repeat: no-repeat;
-  background-origin: padding-box;
-  background-position: center bottom 15%;
-  padding: .2em 0;
+    padding: 0.2em 0;
+
+    background-image: linear-gradient(currentColor,currentColor);
+    background-repeat: no-repeat;
+    background-position: center bottom .3em;
+    background-origin: padding-box;
+    background-size: 100% 1.5px;
+    text-shadow: 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff;
+    transition: background $base-duration $base-timing;
 }
 
 em {
-  font-style: italic;
+    font-style: italic;
 }
 
 strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 a {
     position: relative;
-    color: $insight-red;
-    text-decoration: none;
+
     transition: color $base-duration $base-timing;
+    text-decoration: none;
+
+    color: $insight-red;
 
     &:active,
     &:focus,
     &:hover {
         color: shade($insight-red, 25%);
+        transition: color $base-duration $base-timing;
     }
-
 }
 
 hr {
+    margin: $base-spacing 0;
+
+    border-top: 0;
+    border-right: 0;
     border-bottom: $base-border;
     border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    margin: $base-spacing 0;
 }
 
 .text {
@@ -113,63 +132,79 @@ hr {
 
 .text-centered {
     max-width: $max-text-width;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.center{
+
+.center {
     text-align: center;
 }
 
 h1 {
-    @include font-size($h1-font-sizes);
     font-weight: bold;
+
+    @include font-size($h1-font-sizes);
 }
 
 h2 {
-    @include font-size($h2-font-sizes);
-    font-weight: 600;
     margin-bottom: 0.5em;
+
+    font-weight: 600;
+
+    @include font-size($h2-font-sizes);
 }
 
 h3 {
-    @include font-size($h3-font-sizes);
-    font-style: italic;
     font-weight: 400;
+    font-style: italic;
+
+    @include font-size($h3-font-sizes);
 }
 
 h4 {
-    @include font-size($h4-font-sizes);
     font-weight: bold;
+
+    @include font-size($h4-font-sizes);
 }
 
 h6 {
-    @include font-size($h6-font-sizes);
-    text-transform: uppercase;
-    font-weight: bold;
-    color: lighten($base-font-color, 30%);
     margin: 0;
+
+    text-transform: uppercase;
+
+    color: lighten($base-font-color, 30%);
+
+    font-weight: bold;
+
+    @include font-size($h6-font-sizes);
 }
 /* standard */
 pre {
-    background-color: $code-color;
-    padding: 1em;
-    margin-bottom: 2rem;
-    max-width:100%;
-    white-space: pre;
     overflow: auto;
 
-    code{
-      padding:0;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    padding: 1em;
+
+    white-space: pre;
+
+    background-color: $code-color;
+
+    code {
+        padding: 0;
     }
 }
 
 code {
-    background-color: $code-color;
-    padding: 0.2em .5em;
-    font-family: $font-stack-inconsolata;
-    font-size:.8em;
+    padding: 0.2em 0.5em;
 
-    span, p {
-      font-family: $font-stack-inconsolata;
+    background-color: $code-color;
+
+    font-family: $font-stack-inconsolata;
+    font-size: 0.8em;
+
+    p,
+    span {
+        font-family: $font-stack-inconsolata;
     }
 }
 
@@ -178,9 +213,9 @@ pre code {
 }
 /* terminal */
 pre.terminal {
+    color: #FFF;
     border: 1px solid #000;
     background-color: #333;
-    color: #FFF;
 }
 
 pre.terminal code {
@@ -191,6 +226,59 @@ pre.terminal code {
     color: #aaa;
 }
 
-.lineno {
-  width:1em;
+blockquote {
+    position: relative;
+
+    display: flex;
+
+    padding: 1em 2em 1em 4em;
+
+
+    background: $insight-red;
+
+    font-style:italic;
+
+    align-items:  center;
+
+    &::before {
+        position: absolute;
+        top: 0.65em;
+        left: 0.15em;
+
+        display:block;
+
+        margin: 0;
+
+        content: "\201C";
+
+        color: #fff;
+
+        font-size: 5em;
+    }
+
+    p {
+      margin:0;
+      color: #fff;
+      font-weight:500;
+    }
+
+    em {
+      font-style: normal;
+    }
+
+    a {
+      text-shadow: none;
+      color: #fff;
+
+      background-image: linear-gradient(currentColor,currentColor);
+      background-repeat: no-repeat;
+      background-position: center bottom .3em;
+      background-origin: padding-box;
+      background-size: 100% 1.5px;
+      text-shadow: 3px 0 $insight-red, 2px 0 $insight-red, 1px 0 $insight-red, -1px 0 $insight-red, -2px 0 $insight-red, -3px 0 $insight-red;
+
+      &:hover{
+        color: #fff;
+      }
+    }
 }

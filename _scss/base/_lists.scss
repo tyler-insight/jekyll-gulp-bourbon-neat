@@ -5,6 +5,7 @@ ol {
   padding: 0;
   margin-bottom: 2rem;
   line-height: 1.5em;
+
 }
 
 dl {
@@ -26,14 +27,22 @@ dd {
 
 ul {
   &.default{
-    list-style-type: disc;
-    padding-left:1.5em;
+    padding-left:2em;
+
+    li::before {
+      content: "• ";
+      color: $insight-red;
+      font-size:.8em;
+      position: relative;
+      left:-.15em;
+      bottom:.15em;
+    }
   }
 }
 
 ol {
   &.default{
     list-style-type: decimal;
-    padding-left:1.5em;
+    padding-left:3em;
   }
 }
