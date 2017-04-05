@@ -95,11 +95,33 @@ title: Typography Systems
         <strong>Bold</strong> <br />
         <strong><em>Bold Italic </em></strong><br />
         <code>Code Snippet</code><br />
+      </p>
+      <p>
+        This is an example blockquote:
         <blockquote>
-          <p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer <a href="">adipiscing elit</a>. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt
+          <p> Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer <a href="">adipiscing elit</a>. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt
             nec, gravida vehicula, nisl. <strong>Praesent</strong> mattis, massa quis luctus fermentum.</p>
         </blockquote>
       </p>
+      <p>
+        This is an example code block (scss):
+      </p>
+      {% highlight scss %}
+h6 {
+    @include font-size($h6-font-sizes);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lighten($base-font-color, 30%);
+    margin: 0;
+}
+/* standard */
+pre {
+    border: 1px solid #ddd;
+    background-color: #eee;
+    padding: 0 0.4em;
+    margin-bottom: 2rem;
+}
+      {% endhighlight %}
 
       <hr>
 

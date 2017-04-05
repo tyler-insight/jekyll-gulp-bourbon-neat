@@ -178,6 +178,7 @@ h6 {
     @include font-size($h6-font-sizes);
 }
 /* standard */
+
 pre {
     overflow: auto;
 
@@ -229,8 +230,6 @@ pre.terminal code {
 blockquote {
     position: relative;
 
-    display: flex;
-
     padding: 1em 2em 1em 4em;
 
 
@@ -254,6 +253,11 @@ blockquote {
         color: #fff;
 
         font-size: 5em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #fff;
+      display:block;
     }
 
     p {

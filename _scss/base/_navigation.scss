@@ -13,7 +13,6 @@ $nav-background-color: #fff;
          padding: $column-padding-large;
     }
 
-
     ul {
         height: $nav-height;
         position: absolute;
@@ -34,6 +33,7 @@ $nav-background-color: #fff;
 
             a {
                 line-height: $nav-height;
+                font-size: .8em;
             }
         }
     }
