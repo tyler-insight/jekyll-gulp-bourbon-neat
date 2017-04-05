@@ -31,6 +31,7 @@ $(function() {
 
       /* ----- Here you could maybe add logic to set the HTML title to the new page title ----- */
 
+
       /* ----- Used for popState event (back/forward browser buttons) ----- */
       changedPage = true;
     },
@@ -81,6 +82,12 @@ $(function() {
         url: url,
         title: title
       }, title, url);
+
+      if (url == '/') {
+          document.title = "Sitename";
+      } else {
+          document.title = title + " - Sitename";
+      }
 
       loadPage(url);
       return false;
