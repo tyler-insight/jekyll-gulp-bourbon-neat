@@ -2,38 +2,44 @@ $nav-height: 8rem;
 $nav-background-color: #fff;
 
 .navigation {
-    background: #fff;
-    height: $nav-height;
     position: relative;
-    background: $nav-background-color;
-    z-index:100;
+    z-index: 100;
+
+    height: $nav-height;
     padding: $column-padding-regular;
 
+    background: #fff;
+    background: $nav-background-color;
+
     @include grid-media($neat-small) {
-         padding: $column-padding-large;
+        padding: $column-padding-large;
     }
 
     ul {
-        height: $nav-height;
         position: absolute;
-        right: $grid-gutter*2;
         top: 0;
-        display: flex;
-        align-items: center;
+        right: $grid-gutter*2;
 
+        display: flex;
+
+        height: $nav-height;
+
+        align-items: center;
         @include grid-media($neat-small) {
             right: $grid-gutter*3;
         }
 
         li {
-            display: flex;
-            align-items: center;
             position: relative;
+
+            display: flex;
+
             margin-left: 2rem;
 
+            align-items: center;
+
             a {
-                line-height: $nav-height;
-                font-size: .8em;
+                font-size: 0.8em;
             }
         }
     }

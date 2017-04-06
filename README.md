@@ -60,8 +60,8 @@ There are two main types of grids setup, grids with gutters and edge to edge gri
 
 The below chart breaks down the column structure for desktop:
 
-| #Columns | Class Name    |
-| :- | :------------------- |
+| #Columns | Class Name       |
+| :- | :--------------------- |
 | 1/1  | `.full-column`       |
 | 1/2  | `.half-column`       |
 | 1/3  | `.one-thirds-column` |
@@ -93,8 +93,8 @@ To use a grid with gutters, your code would look something like this:
 
 The below chart breaks down the column structure for desktop:
 
-| #Columns | Class Name    |
-| :- | :------------------- |
+| #Columns | Class Name            |
+| :- | :-------------------------- |
 | 1/1  | `.full-column-full`       |
 | 1/2  | `.half-column-full`       |
 | 1/3  | `.one-thirds-column-full` |

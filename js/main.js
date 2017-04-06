@@ -1,28 +1,40 @@
 /* ----- Set Velocity.js Animations ----- */
 $.Velocity
-    .RegisterEffect("transition.fadeIn", {
-        defaultDuration: 700,
-        calls: [
-            [ { opacity: 1, translateY: '0px' } ]
-        ]
-    });
+  .RegisterEffect("transition.fadeIn", {
+    defaultDuration: 700,
+    calls: [
+      [{
+        opacity: 1,
+        translateY: '0px'
+      }]
+    ]
+  });
 $.Velocity
-    .RegisterEffect("transition.fadeOut", {
-        defaultDuration: 700,
-        calls: [
-            [ { opacity: 0, translateY: '10rem' } ]
-        ],
-        reset: { translateY: '10rem' }
-    });
+  .RegisterEffect("transition.fadeOut", {
+    defaultDuration: 700,
+    calls: [
+      [{
+        opacity: 0,
+        translateY: '10rem'
+      }]
+    ],
+    reset: {
+      translateY: '10rem'
+    }
+  });
 
 $(function() {
   var changedPage = false,
 
     /* ----- Do this when a page loads ----- */
     init = function() {
+      console.log("Initializing scripts");
+
+      /* ----- Runs function for setting divs to equal height ----- */
+      equalHeight();
+
       /* ----- This is where I would run any page specific functions ----- */
 
-      console.log("Initializing scripts");
     },
 
     /* ----- Do this for ajax page loads ----- */
@@ -39,23 +51,24 @@ $(function() {
     loadPage = function(url) {
       /* ----- Animate current content out ----- */
       $('#content').velocity("transition.fadeOut", {
-            complete: function() {
-              $('html').velocity("scroll", {
-                duration: 0,
-                easing: "ease",
-                mobileHA: false
-              });
-              $("#content").load(url + " #content", function(){
-                $('#content').velocity("transition.fadeIn", {
-                  visibility: 'visible',
-                      complete: function() {
-                        ajaxLoad();
-                        console.log("Ajax Loaded");
-                      }
-                  });
-              });
-            }
-        });
+        complete: function() {
+          $('html').velocity("scroll", {
+            duration: 0,
+            easing: "ease",
+            mobileHA: false
+          });
+          $("#content").load(url + " #content", function() {
+            $('#content').velocity("transition.fadeIn", {
+              visibility: 'visible',
+              complete: function() {
+                console.log("Ajax Loaded");
+                ajaxLoad();
+
+              }
+            });
+          });
+        }
+      });
 
       /* ----- Animate new content in ----- */
 
@@ -84,9 +97,9 @@ $(function() {
       }, title, url);
 
       if (url == '/') {
-          document.title = "Sitename";
+        document.title = "Sitename";
       } else {
-          document.title = title + " - Sitename";
+        document.title = title + " - Sitename";
       }
 
       loadPage(url);
@@ -94,4 +107,15 @@ $(function() {
     }
 
   });
+
+  /* ----- Sets divs in same row with .equal class so that their heights are equal ----- */
+  function equalHeight() {
+    $('.equal').matchHeight({
+      byRow: true,
+      property: 'height',
+      target: null,
+      remove: false
+    });
+  }
+
 });

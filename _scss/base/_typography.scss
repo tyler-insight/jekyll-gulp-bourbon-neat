@@ -84,13 +84,14 @@ p span {
 p a {
     padding: 0.2em 0;
 
+    transition: background $base-duration $base-timing;
+
     background-image: linear-gradient(currentColor,currentColor);
     background-repeat: no-repeat;
     background-position: center bottom .3em;
     background-origin: padding-box;
     background-size: 100% 1.5px;
     text-shadow: 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff;
-    transition: background $base-duration $base-timing;
 }
 
 em {
@@ -112,8 +113,9 @@ a {
     &:active,
     &:focus,
     &:hover {
-        color: shade($insight-red, 25%);
         transition: color $base-duration $base-timing;
+
+        color: shade($insight-red, 25%);
     }
 }
 
@@ -232,7 +234,6 @@ blockquote {
 
     padding: 1em 2em 1em 4em;
 
-
     background: $insight-red;
 
     font-style:italic;
@@ -256,13 +257,16 @@ blockquote {
     }
 
     h1, h2, h3, h4, h5, h6 {
-      color: #fff;
       display:block;
+
+      color: #fff;
     }
 
     p {
       margin:0;
+
       color: #fff;
+
       font-weight:500;
     }
 
@@ -271,14 +275,13 @@ blockquote {
     }
 
     a {
-      text-shadow: none;
       color: #fff;
-
       background-image: linear-gradient(currentColor,currentColor);
       background-repeat: no-repeat;
       background-position: center bottom .3em;
       background-origin: padding-box;
       background-size: 100% 1.5px;
+      text-shadow: none;
       text-shadow: 3px 0 $insight-red, 2px 0 $insight-red, 1px 0 $insight-red, -1px 0 $insight-red, -2px 0 $insight-red, -3px 0 $insight-red;
 
       &:hover{
