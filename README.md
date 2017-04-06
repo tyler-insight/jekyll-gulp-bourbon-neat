@@ -38,7 +38,7 @@ As this is just a Jekyll project, you can use any of the commands listed in thei
 
 [Official Neat Documentation](http://neat.bourbon.io/docs/latest/)
 
-You can find an example of the grid setup by running `gulp` and going to the Grid System page
+You can find an example of the grid setup by running `gulp` and going to the Grid System page.
 
 ### Breakpoints
 
@@ -140,3 +140,7 @@ becomes
   </div>
 </section>
 ```
+
+### Typography
+
+You can find an examples of the typography styles by running `gulp` and going to the Typography page.
