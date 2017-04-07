@@ -24,36 +24,12 @@
 </head>
 
 <body>
-  <nav class="navigation full-column-full">
-    <h1><a href="/">{{ site.name }}</a></h1>
-    <ul class="menu">
-      <li>
-        <a href="/grid">Grid System</a>
-      </li>
-      <li>
-        <a href="/typography">Typography</a>
-      </li>
-    </ul>
-  </nav>
+  {% include header.html %}
 
   <div id="content">
     {{ content }}
 
-    <section>
-      <div class="footer full-column">
-        <div class="contact">
-          <p>
-            Your Name is<br /> What You Are<br /> you@example.com
-          </p>
-        </div>
-        <div class="contact">
-          <p>
-            <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-            <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-          </p>
-        </div>
-      </div>
-    </section>
+    {% include footer.html %}
   </div>
 
   <!-- jQuery library -->

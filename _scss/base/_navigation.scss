@@ -1,46 +1,219 @@
-$nav-height: 8rem;
-$nav-background-color: #fff;
-
-.navigation {
-    position: relative;
+.auto-hide-header {
+    position: fixed;
     z-index: 100;
+    top: 0;
+    left: 0;
 
+    width: 100%;
     height: $nav-height;
-    padding: $column-padding-regular;
 
-    background: #fff;
-    background: $nav-background-color;
+    transition: transform 0.5s;
+    /* Force Hardware Acceleration */
+    transform: translateZ(0);
 
-    @include grid-media($neat-small) {
-        padding: $column-padding-large;
+    background-color: $nav-background-color;
+
+    will-change: transform;
+
+    &.is-hidden {
+        transform: translateY(-100%);
     }
 
-    ul {
+    .logo,
+    .nav-trigger {
         position: absolute;
-        top: 0;
-        right: $grid-gutter*2;
+
+        padding-left: 2rem;
+
+        font-size: 1.5em;
+
+        @include center(y);
+    }
+
+    .logo {
+        padding-left: 2rem;
+        @media screen and (min-width: $small) {
+            padding-left: 3rem;
+        }
+    }
+
+    .nav-trigger {
+        right: 1rem;
 
         display: flex;
 
-        height: $nav-height;
+        height: 100%;
+        padding: 0 1rem;
+
+        cursor: pointer;
 
         align-items: center;
-        @include grid-media($neat-small) {
-            right: $grid-gutter*3;
+
+        user-select: none;
+
+        span h2 {
+            display: inline-block;
+
+            height: auto;
+            margin: 0;
+            padding: 0;
+
+
+
+            font-size: 0.8em;
         }
 
-        li {
+        em,
+        em::after,
+        em::before {
             position: relative;
 
-            display: flex;
+            display: inline-block;
 
-            margin-left: 2rem;
+            width: 22px;
+            height: 2px;
 
-            align-items: center;
+            background-color: $dark-gray;
+
+            backface-visibility: hidden;
+        }
+
+        em {
+            margin: 6px 0 7px 0.2em;
+
+            transition: background-color 0.2s;
+        }
+
+        em::after,
+        em::before {
+            position: absolute;
+            left: 0;
+
+            content: '';
+            transition: transform 0.2s;
+        }
+
+        em::before {
+            transform: translateY(-6px);
+        }
+
+        em::after {
+            transform: translateY(6px);
+        }
+        @media screen and (min-width: $medium) {
+            display: none;
+        }
+    }
+
+    &.nav-open .nav-trigger {
+        em {
+            /* transform menu icon into a 'X' icon */
+            background-color: rgba($nav-background-color, 0);
+        }
+
+        em::before {
+            /* rotate top line */
+            transform: rotate(-45deg);
+        }
+
+        em::after {
+            /* rotate bottom line */
+            transform: rotate(45deg);
+        }
+    }
+
+    .primary-nav {
+        display: inline-block;
+        float: right;
+
+        height: 100%;
+        padding-right: 0;
+
+        > ul {
+            position: absolute;
+            z-index: 1;
+            top: $nav-height;
+            left: 0;
+
+            display: none;
+            overflow: hidden;
+
+            width: 100%;
+            max-height: 0;
+
+            background-color: $nav-background-color;
+            box-shadow: 0 14px 20px rgba(0,0,0, .1);
 
             a {
-                font-size: 0.8em;
+                display: block;
+
+                height: 3rem;
+                padding-left: 2rem;
+
+                border-top: 1px solid darken($nav-background-color, 10%);
+
+                line-height: 3rem;
+
+                transition: none;
+
+                &:hover {
+                  color: #fff;
+                  background-color: $insight-red;
+                }
+                @media screen and (min-width: $small) {
+                    padding-left: 3rem;
+                }
             }
         }
+        @media screen and (min-width: $medium) {
+            display: table;
+
+            padding-right: 3rem;
+
+            > ul {
+                position: relative;
+                top: 0;
+
+                display: table-cell;
+
+                width: auto;
+                padding: 0;
+
+                vertical-align: middle;
+
+                background-color: transparent;
+                box-shadow: none;
+
+                li {
+                    display: inline-block;
+                    float: left;
+
+                    margin-right: 1em;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+
+                a {
+                    height: auto;
+                    padding: 0;
+
+                    border: none;
+
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+.nav-open .primary-nav ul,
+.primary-nav ul:target {
+    display: block;
+
+    max-height: 10rem;
+    @media screen and (min-width: $medium) {
+        display: table-cell;
     }
 }

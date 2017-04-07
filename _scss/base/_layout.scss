@@ -15,9 +15,7 @@ html {
 /*---------------------------------
 Examples formatting
 ----------------------------------*/
-.header {
-    padding: 20px 0;
-}
+
 /*---------------------------------
 Grids
 ----------------------------------*/
@@ -53,7 +51,9 @@ section {
     }
 }
 
-#content {}
+#content {
+  margin-top: $nav-height;
+}
 
 .full-edge {
     @include grid-collapse;
