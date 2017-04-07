@@ -3,16 +3,12 @@
     z-index: 100;
     top: 0;
     left: 0;
-
     width: 100%;
     height: $nav-height;
-
     transition: transform 0.5s;
     /* Force Hardware Acceleration */
     transform: translateZ(0);
-
     background-color: $nav-background-color;
-
     will-change: transform;
 
     &.is-hidden {
@@ -21,66 +17,56 @@
 
     .logo,
     .nav-trigger {
-        position: absolute;
-
+        position: relative;
         padding-left: 2rem;
-
-        font-size: 1.5em;
-
         @include center(y);
     }
 
     .logo {
+        font-weight: bold;
+        font-size: 1.5em;
         padding-left: 2rem;
         @media screen and (min-width: $small) {
             padding-left: 3rem;
+        }
+
+        a {
+            color: #000;
         }
     }
 
     .nav-trigger {
         right: 1rem;
-
         display: flex;
-
         height: 100%;
         padding: 0 1rem;
-
         cursor: pointer;
-
         align-items: center;
-
         user-select: none;
 
-        span h2 {
+        h2 {
             display: inline-block;
-
             height: auto;
             margin: 0;
             padding: 0;
+            font-size: 1.5rem;
+            margin-right:.2em;
 
-
-
-            font-size: 0.8em;
         }
 
         em,
         em::after,
         em::before {
             position: relative;
-
             display: inline-block;
-
             width: 22px;
             height: 2px;
-
             background-color: $dark-gray;
-
             backface-visibility: hidden;
         }
 
         em {
-            margin: 6px 0 7px 0.2em;
-
+            margin: 6px 0 5px 0.2em;
             transition: background-color 0.2s;
         }
 
@@ -88,7 +74,6 @@
         em::before {
             position: absolute;
             left: 0;
-
             content: '';
             transition: transform 0.2s;
         }
@@ -99,6 +84,9 @@
 
         em::after {
             transform: translateY(6px);
+        }
+        @media screen and (min-width: $small) {
+            right: 2rem;
         }
         @media screen and (min-width: $medium) {
             display: none;
@@ -125,7 +113,6 @@
     .primary-nav {
         display: inline-block;
         float: right;
-
         height: 100%;
         padding-right: 0;
 
@@ -134,31 +121,24 @@
             z-index: 1;
             top: $nav-height;
             left: 0;
-
             display: none;
             overflow: hidden;
-
             width: 100%;
             max-height: 0;
-
             background-color: $nav-background-color;
             box-shadow: 0 14px 20px rgba(0,0,0, .1);
 
             a {
                 display: block;
-
                 height: 3rem;
                 padding-left: 2rem;
-
                 border-top: 1px solid darken($nav-background-color, 10%);
-
                 line-height: 3rem;
-
                 transition: none;
 
                 &:hover {
-                  color: #fff;
-                  background-color: $insight-red;
+                    color: #fff;
+                    background-color: $insight-red;
                 }
                 @media screen and (min-width: $small) {
                     padding-left: 3rem;
@@ -167,27 +147,21 @@
         }
         @media screen and (min-width: $medium) {
             display: table;
-
             padding-right: 3rem;
 
             > ul {
                 position: relative;
                 top: 0;
-
                 display: table-cell;
-
                 width: auto;
                 padding: 0;
-
                 vertical-align: middle;
-
                 background-color: transparent;
                 box-shadow: none;
 
                 li {
                     display: inline-block;
                     float: left;
-
                     margin-right: 1em;
 
                     &:last-of-type {
@@ -198,11 +172,8 @@
                 a {
                     height: auto;
                     padding: 0;
-
                     border: none;
-
                     line-height: normal;
-
                     color: $insight-red;
 
                     &:active,
@@ -221,7 +192,6 @@
 .nav-open .primary-nav ul,
 .primary-nav ul:target {
     display: block;
-
     max-height: 10rem;
     @media screen and (min-width: $medium) {
         display: table-cell;
