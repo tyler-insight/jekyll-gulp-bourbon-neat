@@ -136,6 +136,8 @@
                 line-height: 3rem;
                 transition: none;
 
+                font-family: $font-stack-helvetica;
+
                 &:hover {
                     color: #fff;
                     background-color: $insight-red;

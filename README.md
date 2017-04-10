@@ -103,7 +103,7 @@ The below chart breaks down the column structure for desktop:
 | 1/6  | `.sixth-column-full`      |
 | 1/12 | `.twelfth-column-full`    |
 
-To use a grid with gutters, your code would look something like this:
+To use a grid without gutters, your code would look something like this:
 
 ```
 <section>

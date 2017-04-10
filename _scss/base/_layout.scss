@@ -62,23 +62,15 @@ section {
 Standard Columns
 ----------------------------------*/
 .full-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(2);
     }
 }
 
 .half-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium) {
@@ -90,12 +82,8 @@ Standard Columns
 }
 
 .one-thirds-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(2);
     }
     @include grid-media($neat-medium) {
@@ -107,12 +95,8 @@ Standard Columns
 }
 
 .fourth-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium) {
@@ -124,12 +108,8 @@ Standard Columns
 }
 
 .sixth-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium) {
@@ -141,12 +121,8 @@ Standard Columns
 }
 
 .twelfth-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium) {
@@ -158,12 +134,8 @@ Standard Columns
 }
 
 .two-thirds-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(2);
     }
     @include grid-media($neat-medium) {
@@ -177,21 +149,12 @@ Standard Columns
 Full Grids
 ---------------------------------*/
 .full-column-full {
-    padding: $column-padding-small;
-
     @include grid-column(1, $neat-grid-full);
-    @include grid-media($neat-small-full) {
-        padding: $column-padding-regular;
-    }
 }
 
 .half-column-full {
-    padding: $column-padding-small;
-
     @include grid-column(1, $neat-grid-full);
     @include grid-media($neat-small-full) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium-full) {
@@ -203,12 +166,7 @@ Full Grids
 }
 
 .one-thirds-column-full {
-    padding: $column-padding-small;
-
     @include grid-column(1, $neat-grid-full);
-    @include grid-media($neat-small-full) {
-        padding: $column-padding-regular;
-    }
     @include grid-media($neat-medium-full) {
          @include grid-column(2);
     }
@@ -218,12 +176,8 @@ Full Grids
 }
 
 .fourth-column-full {
-    padding: $column-padding-small;
-
     @include grid-column(1, $neat-grid-full);
     @include grid-media($neat-small-full) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium-full) {
@@ -235,12 +189,8 @@ Full Grids
 }
 
 .sixth-column-full {
-    padding: $column-padding-small;
-
     @include grid-column(1, $neat-grid-full);
     @include grid-media($neat-small-full) {
-        padding: $column-padding-regular;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium-full) {
@@ -252,12 +202,8 @@ Full Grids
 }
 
 .twelfth-column-full {
-    padding: $column-padding-small;
-
     @include grid-column(1, $neat-grid-full);
     @include grid-media($neat-small-full) {
-        padding: 2rem;
-
         @include grid-column(1);
     }
     @include grid-media($neat-medium-full) {
@@ -269,12 +215,8 @@ Full Grids
 }
 
 .two-thirds-column-full {
-    padding: 1rem;
-
     @include grid-column(1, $neat-grid-full);
     @include grid-media($neat-small-full) {
-        padding: 2rem;
-
         @include grid-column(2);
     }
     @include grid-media($neat-medium-full) {
@@ -288,12 +230,8 @@ Full Grids
 Centered Columns
 ----------------------------------*/
 .five-sixth-column {
-    padding: $column-padding-small;
-
     @include grid-column(1);
     @include grid-media($neat-small) {
-        padding: $column-padding-regular;
-
         @include grid-column(2);
     }
     @include grid-media($neat-medium) {
@@ -341,6 +279,20 @@ Centered Columns
     @include grid-media($neat-small) {
         margin-bottom: 4rem;
     }
+}
+
+.side-padding {
+  padding: 0 $column-padding-small;
+  @include grid-media($neat-small) {
+      padding: 0 $column-padding-regular;
+  }
+}
+
+.full-padding {
+  padding: $column-padding-small;
+  @include grid-media($neat-small) {
+      padding: $column-padding-regular;
+  }
 }
 
 .no-padding {
