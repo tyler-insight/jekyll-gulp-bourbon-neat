@@ -7,6 +7,7 @@ var cleanCSS    = require('gulp-clean-css');
 var uglify      = require('gulp-uglify');
 var pump        = require('pump');
 var imagemin    = require('gulp-imagemin');
+var imageresize = require('gulp-image-resize');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -73,7 +74,15 @@ gulp.task('compress', function(cb){
  * Compress image files
  */
 gulp.task('images', function() {
-    gulp.src('img/**/*')
+    gulp.src('img/**/*.{jpg,png}')
+        .pipe(imageresize({
+          width: 1800,
+          upscale: false,
+          quality: 0.8,
+          samplingFactor: [2, 2],
+          noProfile: true,
+          interlace: true,
+        }))
         .pipe(imagemin())
         .pipe(gulp.dest('_site/img'));
 });
